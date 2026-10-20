@@ -1,0 +1,79 @@
+:root {
+  /* アプリの Theme と同じ値（Design/tokens.md） */
+  --bg: #E9E6DF;
+  --surface: #F7F5F0;
+  --text: #1F2323;
+  --muted: #5F6664;
+  --border: #D9D5CC;
+  --accent: #E0A34A;
+  --accent-ink: #8A5A14;
+  --accent-soft: #F6E7CB;
+  --card-warm: #F6E7CB;
+  --card-warm-ink: #1F2323;
+  --pill: #F7F5F0;
+  --radius: 16px;
+  --maxw: 720px;
+  --font: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", Meiryo, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 盤のスレート色を地にする */
+    --bg:#1B2020; --surface:#252C2B; --text:#ECE8DF; --muted:#A9AFAC; --border:#34403F;
+    --accent:#E0A34A; --accent-ink:#EDBB6E; --accent-soft:#3A3322;
+    --card-warm:#3A3322; --card-warm-ink:#F6EFE4; --pill:#252C2B;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px 96px; }
+
+/* header */
+header.site { padding: 44px 0 26px; border-bottom: 1px solid var(--border); margin-bottom: 34px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.stones { display: flex; align-items: center; flex: none; }
+.stones i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,.12); box-shadow: inset 2px 2px 4px rgba(255,255,255,.55), 0 2px 5px rgba(0,0,0,.18); margin-left: -6px; }
+.stones i:first-child { margin-left: 0; }
+/* 白石（象牙）と黒石（墨）。アプリの StoneView と同じ光源 */
+.stones .s1, .stones .s2 { background: radial-gradient(circle at 34% 28%, #FFFFFF 0%, #F3EEE2 26%, #E6DECC 62%, #CFC5AE 100%); }
+.stones .s3, .stones .s4 { background: radial-gradient(circle at 34% 28%, #676C6C 0%, #303333 28%, #1E1F1F 66%, #0A0B0B 100%); border-color: #6B7270; }
+.app { color: var(--muted); font-size: 12.5px; margin: 2px 0 0; }
+.brand-name { font-weight: 700; font-size: 15px; letter-spacing: .02em; }
+h1 { font-size: clamp(28px, 6vw, 38px); font-weight: 800; letter-spacing: -.01em; margin: 24px 0 6px; text-wrap: balance; }
+.updated { color: var(--muted); font-size: 13.5px; margin: 0; }
+.lead { color: var(--muted); font-size: 16px; }
+
+/* text */
+h2 { font-size: 19px; font-weight: 700; margin: 38px 0 10px; padding-left: 13px; border-left: 3px solid var(--accent); }
+p, li { font-size: 16px; }
+p { margin: 12px 0; }
+.muted { color: var(--muted); }
+ul, ol { padding-left: 22px; margin: 12px 0; }
+li { margin: 7px 0; }
+a { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 700; }
+
+.note { background: var(--accent-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin: 20px 0; font-size: 15px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 6px 20px 18px; margin: 16px 0; }
+.back { display: inline-block; margin-top: 40px; color: var(--muted); font-size: 14px; text-decoration: none; }
+.back:hover { color: var(--text); }
+footer.site { margin-top: 52px; padding-top: 22px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+
+/* hub cards (index) */
+.card-links { display: grid; gap: 14px; margin: 24px 0; }
+.card-links a { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; text-decoration: none; color: var(--text); }
+.card-links a:hover { border-color: var(--accent); }
+.card-links .t { font-weight: 700; font-size: 17px; }
+.card-links .d { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+/* features (index) */
+.features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 8px 0; }
+@media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+.feat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.feat h3 { margin: 0 0 5px; font-size: 16px; }
+.feat p { margin: 0; color: var(--muted); font-size: 14px; }
+
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 12.5px; }
+.scroll { overflow-x: auto; }
